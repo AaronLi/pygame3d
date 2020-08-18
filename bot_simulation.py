@@ -1,5 +1,6 @@
 from pygame import *
-from simulation.rendering import camera, shape, light_source
+from rendering import camera, light_source
+from rendering.shape import cylinder, disc, capped_cylinder, sphere
 import numpy as np
 
 screen = display.set_mode((800, 600))
@@ -8,21 +9,21 @@ c = camera.Camera(800, 600, 90)
 
 clockity = time.Clock()
 
-cyl = shape.cylinder.Cylinder(10, 5, faces=50, pos=np.array((20, -2.5, 0, 1)))
+cyl = cylinder.Cylinder(10, 5, faces=50, pos=np.array((20, -2.5, 0, 1)))
 
-disc = shape.disc.Disc(10, 35, 20)
+disc = disc.Disc(10, 35, 20)
 
-capped_cyl = shape.capped_cylinder.CappedCylinder(4, 15, 15, 3)
+capped_cyl = capped_cylinder.CappedCylinder(4, 15, 15, 3)
 
-capped_cyl.translate_z(-20)
+#capped_cyl.translate_z(-20)
 capped_cyl.rotate_z(np.radians(45))
-capped_cyl.translate_x(30)
+capped_cyl.translate_x(25)
 
 disc.rotate_z(np.radians(90))
 disc.translate_z(30)
 disc.translate_x(30)
 
-sphere = shape.sphere.Sphere(2)
+sphere = sphere.Sphere(2)
 
 sphere.translate_z(-30)
 #sphere.translate_y(2)
@@ -34,7 +35,7 @@ sphere.translate_x(1)
 
 running = True
 
-l = light_source.LightSource(np.array((5, 5, 5, 1)))
+l = light_source.LightSource(np.array((5, 0, -10, 1)), 0.6)
 
 while running:
     for e in event.get():

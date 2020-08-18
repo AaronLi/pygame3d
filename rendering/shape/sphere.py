@@ -1,8 +1,8 @@
-from simulation.rendering.shape.generic import GenericShape
+from rendering.shape import generic
 import numpy as np
 
 
-class Sphere(GenericShape):
+class Sphere(generic.GenericShape):
     def __init__(self, radius, colour=(255, 255, 255), vertical_faces=5, horizontal_faces=10, transform=np.identity(4, dtype=float), pos = None):
         super().__init__(colour=colour, transform = transform, pos= pos)
 

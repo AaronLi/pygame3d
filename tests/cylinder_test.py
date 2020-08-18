@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from simulation.rendering.shape.cylinder import Cylinder
+from rendering import Cylinder
 
 class CylinderTest(unittest.TestCase):
 

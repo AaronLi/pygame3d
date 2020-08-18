@@ -1,5 +1,6 @@
 import numpy as np
-from simulation.rendering import transform
+from rendering import transform
+
 
 class GenericShape:
     X = np.array((1, 0, 0, 0))

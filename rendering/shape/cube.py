@@ -1,4 +1,4 @@
-from simulation.rendering.shape import plane, composite_shape
+from rendering.shape import plane, composite_shape
 import numpy as np
 
 class Cube(composite_shape.CompositeShape):

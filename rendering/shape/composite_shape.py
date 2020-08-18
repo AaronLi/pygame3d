@@ -1,4 +1,4 @@
-from simulation.rendering.shape import generic
+from rendering.shape import generic
 import numpy as np
 
 class CompositeShape(generic.GenericShape):

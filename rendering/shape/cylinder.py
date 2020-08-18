@@ -1,8 +1,8 @@
-from simulation.rendering.shape.generic import GenericShape
+from rendering.shape import generic
 import numpy as np
 
 
-class Cylinder(GenericShape):
+class Cylinder(generic.GenericShape):
     def __init__(self, radius, height, colour=(255, 255, 255), faces=20, transform=np.identity(4, dtype=float), pos = None):
         super().__init__(colour=colour, transform = transform, pos= pos)
 

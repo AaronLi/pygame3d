@@ -1,7 +1,7 @@
-from simulation.rendering import shape
 import numpy as np
+from rendering.shape import generic
 
-class Disc(shape.generic.GenericShape):
+class Disc(generic.GenericShape):
     def __init__(self, radius, radial_resolution, lateral_resolution, colour=(255, 255, 255), transform=np.identity(4, dtype=float), pos=None):
         super().__init__(colour, transform, pos)
 

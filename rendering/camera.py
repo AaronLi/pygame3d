@@ -1,8 +1,8 @@
 import numpy as np
 from typing import List
-from simulation.rendering.shape import *
 from collections import namedtuple
-from simulation.rendering import light_source
+from rendering import light_source
+from rendering.shape import generic
 
 
 RenderedPolygon = namedtuple("RenderedPolygon", ("face", "colour"))
@@ -24,8 +24,9 @@ class Camera:
         )
     )
 
-    def __init__(self, h_resolution, v_resolution, fov, near_plane=2, far_plane=30, pos=None, gaze=None) -> None:
+    def __init__(self, h_resolution, v_resolution, fov, near_plane=2, far_plane=30, pos=None, gaze=None, ambient_intensity = 20) -> None:
 
+        self.ambient_intensity = ambient_intensity
         self.fov = fov
         self.v_resolution = v_resolution
         self.h_resolution = h_resolution
@@ -102,7 +103,7 @@ class Camera:
                 light_vector = light.pos - centroid
                 angle_deviation = max(0, np.dot(normal, light_vector) / (np.linalg.norm(normal) * np.linalg.norm(light_vector)))
                 if angle_deviation > 0:
-                    faces_out.append(RenderedPolygon(face_out, (shape.colour[0] * angle_deviation, shape.colour[1] * angle_deviation, shape.colour[2] * angle_deviation)))
+                    faces_out.append(RenderedPolygon(face_out, (min(shape.colour[0] * angle_deviation * light.intensity + self.ambient_intensity, 255), min(shape.colour[1] * angle_deviation * light.intensity + self.ambient_intensity, 255), min(shape.colour[2] * angle_deviation * light.intensity + self.ambient_intensity, 255))))
 
         return faces_out
 

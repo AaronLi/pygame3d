@@ -1,5 +1,5 @@
 import unittest
-from simulation.rendering.shape.generic import GenericShape
+from rendering import GenericShape
 import numpy as np
 
 class GenericShapeTest(unittest.TestCase):

@@ -1,4 +1,4 @@
-from simulation.rendering.shape import composite_shape, disc, cylinder
+from rendering.shape import disc, cylinder, composite_shape
 import numpy as np
 
 class CappedCylinder(composite_shape.CompositeShape):
